@@ -8,13 +8,13 @@ Complete quiz website using Javascript, HTML, CSS
 - After 20 question score get reset
 
 ## Few Screenshot
-![quiz page](https://raw.github.com/priyanshuga/Quiz/master/images/Screenshot (210).png "Quiz Page")
+![quiz page](https://raw.github.com/priyanshuga/Quiz/master/images/Screenshot%20(210).png "Quiz Page")
 
-![wrong answer](https://raw.github.com/priyanshuga/Quiz/master/images/Screenshot (211).png "If you have selected wrong answer")
+![wrong answer](https://raw.github.com/priyanshuga/Quiz/master/images/Screenshot%20(211).png "If you have selected wrong answer")
 
-![correct_answer](https://raw.github.com/priyanshuga/Quiz/master/images/Screenshot (212).png "Correct Answer Display")
+![correct_answer](https://raw.github.com/priyanshuga/Quiz/master/images/Screenshot%20(212).png "Correct Answer Display")
 
-![quiz end](https://raw.github.com/priyanshuga/Quiz/master/images/Screenshot (213).png "Quiz End Page")
+![quiz end](https://raw.github.com/priyanshuga/Quiz/master/images/Screenshot%20(213).png "Quiz End Page")
 
 ## Credit
 [Priyanshu](https://t.me/priyanshugandhi)
