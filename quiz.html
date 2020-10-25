@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>World Cup Quiz</title>
+    <style>
+      #flashcards001 {
+        background-color: white;
+        border: 4px solid black;
+        width: 400px;
+        height: 400px;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .buttons001 {
+        background-color: blue;
+        color: white;
+        padding: 5px;
+        margin: 10px;
+        border-radius: 10px;
+        width: 100px;
+      }
+
+      .buttons002 {
+        background-color: lightblue;
+        color: black;
+        padding: auto;
+        margin: auto;
+        border-radius: auto;
+        width: auto;
+      }
+
+      #text001 {
+        text-align: center;
+      }
+
+      #text002 {
+        text-align: left;
+      }
+
+      #green001 {
+        color: green;
+      }
+
+      #red001 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="frame001">
+      <div id="text001">
+        <h2>World Cup Quiz</h2>
+        Question: <text id="number001">0</text><br />
+        Score: <text id="score001">0</text>
+        <hr />
+        <div id="message001">Click Begin to start</div>
+        <br />
+      </div>
+      <div id="text002">
+        <div id="question001"></div>
+        <div id="option001"></div>
+        <div id="option002"></div>
+        <div id="option003"></div>
+        <div id="option004"></div>
+        <div id="answer001"></div>
+        <div id="text001">
+          <div id="disappear001">
+            <button class="buttons001" onclick="begin001()">Begin</button>
+          </div>
+        </div>
+        <div id="next001"></div>
+      </div>
+    </div>
+
+    <script>
+      var q = [
+        "What team is this 1?<br /><br />",
+        "What team is this 2?<br /><br />",
+        "What team is this 3?<br /><br />",
+        "What team is this 4?<br /><br />",
+        "What team is this 5?<br /><br />",
+        "What team is this 6?<br /><br />",
+        "What team is this 7?<br /><br />",
+        "What team is this 8?<br /><br />",
+        "What team is this 9?<br /><br />",
+        "What team is this 10?<br /><br />",
+        "What team is this 11?<br /><br />",
+        "What team is this 12?<br /><br />",
+        "What team is this 13?<br /><br />",
+        "What team is this 14?<br /><br />",
+        "What team is this 15?<br /><br />",
+        "What team is this 16?<br /><br />",
+        "What team is this 17?<br /><br />",
+        "What team is this 18?<br /><br />",
+        "What team is this 19?<br /><br />",
+        "What team is this 20?<br /><br />",
+      ];
+      //Below code no need to call different function on onclick(), call same function instead
+      var corAns = [
+        "England",
+        "Croatia",
+        "Spain",
+        "Netherlands",
+        "Chile",
+        "Autralia",
+        "Cameroon",
+        "Mexico",
+        "Colombia",
+        "Greece",
+        "England",
+        "Croatia",
+        "Spain",
+        "Netherlands",
+        "Chile",
+        "Autralia",
+        "Cameroon",
+        "Mexico",
+        "Colombia",
+        "Greece",
+      ];
+
+      var a1 = [
+        "<button class=buttons002 onclick=q1c()>England</button>",
+        "<button class=buttons002 onclick=q1c()>Croatia</button>",
+        "<button class=buttons002 onclick=q1c()>Spain</button>",
+        "<button class=buttons002 onclick=q1c()>Netherlands</button>",
+        "<button class=buttons002 onclick=q1c()>Chile</button>",
+        "<button class=buttons002 onclick=q1c()>Autralia</button>",
+        "<button class=buttons002 onclick=q1c()>Cameroon</button>",
+        "<button class=buttons002 onclick=q1c()>Mexico</button>",
+        "<button class=buttons002 onclick=q1c()>Colombia</button>",
+        "<button class=buttons002 onclick=q1c()>Greece</button>",
+        "<button class=buttons002 onclick=q1c()>England</button>",
+        "<button class=buttons002 onclick=q1c()>Croatia</button>",
+        "<button class=buttons002 onclick=q1c()>Spain</button>",
+        "<button class=buttons002 onclick=q1c()>Netherlands</button>",
+        "<button class=buttons002 onclick=q1c()>Chile</button>",
+        "<button class=buttons002 onclick=q1c()>Autralia</button>",
+        "<button class=buttons002 onclick=q1c()>Cameroon</button>",
+        "<button class=buttons002 onclick=q1c()>Mexico</button>",
+        "<button class=buttons002 onclick=q1c()>Colombia</button>",
+        "<button class=buttons002 onclick=q1c()>Greece</button>",
+      ];
+
+      var a2 = [
+        "<button class=buttons002 onclick=q1i()>Japan</button>",
+        "<button class=buttons002 onclick=q1i()>Greece</button>",
+        "<button class=buttons002 onclick=q1i()>Uruguay</button>",
+        "<button class=buttons002 onclick=q1i()>Costa Rica</button>",
+        "<button class=buttons002 onclick=q1i()>Italy</button>",
+        "<button class=buttons002 onclick=q1i()>Switzerland</button>",
+        "<button class=buttons002 onclick=q1i()>Ecuador</button>",
+        "<button class=buttons002 onclick=q1i()>France</button>",
+        "<button class=buttons002 onclick=q1i()>Honduras</button>",
+        "<button class=buttons002 onclick=q1i()>Brazil</button>",
+        "<button class=buttons002 onclick=q1i()>Japan</button>",
+        "<button class=buttons002 onclick=q1i()>Greece</button>",
+        "<button class=buttons002 onclick=q1i()>Uruguay</button>",
+        "<button class=buttons002 onclick=q1i()>Costa Rica</button>",
+        "<button class=buttons002 onclick=q1i()>Italy</button>",
+        "<button class=buttons002 onclick=q1i()>Switzerland</button>",
+        "<button class=buttons002 onclick=q1i()>Ecuador</button>",
+        "<button class=buttons002 onclick=q1i()>France</button>",
+        "<button class=buttons002 onclick=q1i()>Honduras</button>",
+        "<button class=buttons002 onclick=q1i()>Brazil</button>",
+      ];
+
+      var a3 = [
+        "<button class=buttons002 onclick=q1i()>Argentina</button>",
+        "<button class=buttons002 onclick=q1i()>Bosnia and Herzegovina</button>",
+        "<button class=buttons002 onclick=q1i()>Iran</button>",
+        "<button class=buttons002 onclick=q1i()>Nigeria</button>",
+        "<button class=buttons002 onclick=q1i()>Germany</button>",
+        "<button class=buttons002 onclick=q1i()>Ghana</button>",
+        "<button class=buttons002 onclick=q1i()>USA</button>",
+        "<button class=buttons002 onclick=q1i()>Belgium</button>",
+        "<button class=buttons002 onclick=q1i()>Algeria</button>",
+        "<button class=buttons002 onclick=q1i()>Russia</button>",
+        "<button class=buttons002 onclick=q1i()>Argentina</button>",
+        "<button class=buttons002 onclick=q1i()>Bosnia and Herzegovina</button>",
+        "<button class=buttons002 onclick=q1i()>Iran</button>",
+        "<button class=buttons002 onclick=q1i()>Nigeria</button>",
+        "<button class=buttons002 onclick=q1i()>Germany</button>",
+        "<button class=buttons002 onclick=q1i()>Ghana</button>",
+        "<button class=buttons002 onclick=q1i()>USA</button>",
+        "<button class=buttons002 onclick=q1i()>Belgium</button>",
+        "<button class=buttons002 onclick=q1i()>Algeria</button>",
+        "<button class=buttons002 onclick=q1i()>Russia</button>",
+      ];
+
+      var a4 = [
+        "<button class=buttons002 onclick=q1i()>Kora Republic</button>",
+        "<button class=buttons002 onclick=q1i()>Poland</button>",
+        "<button class=buttons002 onclick=q1i()>Egypt</button>",
+        "<button class=buttons002 onclick=q1i()>Iceland</button>",
+        "<button class=buttons002 onclick=q1i()>Serbia</button>",
+        "<button class=buttons002 onclick=q1i()>Portugal</button>",
+        "<button class=buttons002 onclick=q1i()>Panama</button>",
+        "<button class=buttons002 onclick=q1i()>Morocco</button>",
+        "<button class=buttons002 onclick=q1i()>Tunisia</button>",
+        "<button class=buttons002 onclick=q1i()>Peru</button>",
+        "<button class=buttons002 onclick=q1i()>Kora Republic</button>",
+        "<button class=buttons002 onclick=q1i()>Poland</button>",
+        "<button class=buttons002 onclick=q1i()>Egypt</button>",
+        "<button class=buttons002 onclick=q1i()>Iceland</button>",
+        "<button class=buttons002 onclick=q1i()>Serbia</button>",
+        "<button class=buttons002 onclick=q1i()>Portugal</button>",
+        "<button class=buttons002 onclick=q1i()>Panama</button>",
+        "<button class=buttons002 onclick=q1i()>Morocco</button>",
+        "<button class=buttons002 onclick=q1i()>Tunisia</button>",
+        "<button class=buttons002 onclick=q1i()>Peru</button>",
+      ];
+
+      var c = [
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+        "Correct",
+      ];
+      var i = [
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+        "Incorrect",
+      ];
+
+      var n = 0;
+      n++;
+      var s = 0;
+      s++;
+      var randomNumber = 0; // New variable defined
+      var quesFilled = []; // array for already answer ques order no.
+      //changes in below funtion
+      function begin001() {
+        disappear001.innerHTML = "";
+        message001.innerHTML = "";
+        randomNumber = Math.floor(Math.random() * 19); //Random number from 0 to 9
+        // Check if a randomnumber exists in the quesFilled array
+        function shuffle(arra1) {
+          var ctr = arra1.length,
+            temp,
+            index;
+          // While there are elements in the array
+          while (ctr > 0) {
+            // Pick a random index
+            index = Math.floor(Math.random() * ctr);
+            // Decrease ctr by 1
+            ctr--;
+            // And swap the last element with it
+            temp = arra1[ctr];
+            arra1[ctr] = arra1[index];
+            arra1[index] = temp;
+          }
+          return arra1;
+        }
+        var myArray = [
+          a1[randomNumber],
+          a2[randomNumber],
+          a3[randomNumber],
+          a4[randomNumber],
+        ];
+        shuffle(myArray);
+
+        if (n > 20) {
+          end001();
+        } else {
+          question001.innerHTML = q[randomNumber];
+          option001.innerHTML = myArray[0];
+          option002.innerHTML = myArray[1];
+          option003.innerHTML = myArray[2];
+          option004.innerHTML = myArray[3];
+          number001.innerHTML = n++;
+          quesFilled.push(randomNumber); // push this to quesFilled array
+          //below code to remove existing message from screen after click on next
+          var correctmsg = document.getElementById("green001");
+          var incorrectmsg = document.getElementById("red001");
+          if (typeof correctmsg != "undefined" && correctmsg != null) {
+            document.getElementById("green001").innerHTML = "";
+          }
+          if (typeof incorrectmsg != "undefined" && incorrectmsg != null) {
+            document.getElementById("red001").innerHTML = "";
+          }
+        }
+      }
+      // Pass randomNumber variable in place of index 0
+      function q1c() {
+        answer001.innerHTML = "<div id=green001>" + c[randomNumber] + "</div>";
+        option001.innerHTML = "";
+        option002.innerHTML = "";
+        option003.innerHTML = "";
+        option004.innerHTML = "";
+        next001.innerHTML =
+          "<button class=buttons001 onclick=begin001()>Next</button>";
+        score001.innerHTML = s++;
+      }
+      function Answer001() {
+        var ans = corAns[randomNumber];
+        answer001.innerHTML = "<div id=green001>" + ans + "</div>";
+        option001.innerHTML = "";
+        option002.innerHTML = "";
+        option003.innerHTML = "";
+        option004.innerHTML = "";
+        next001.innerHTML =
+          "<button class=buttons001 onclick=begin001()>Next</button>";
+      }
+      // Pass randomNumber variable in place of index 0
+      function q1i() {
+        answer001.innerHTML =
+          "<div id=red001>" +
+          i[randomNumber] +
+          "<button class=buttons001 onclick=Answer001()>Answer</button>" +
+          "</div>";
+        option001.innerHTML = "";
+        option002.innerHTML = "";
+        option003.innerHTML = "";
+        option004.innerHTML = "";
+        next001.innerHTML =
+          "<button class=buttons001 onclick=begin001()>Next</button>";
+      }
+
+      function end001() {
+        message001.innerHTML = "End of Quiz.";
+        question001.innerHTML = "";
+        option001.innerHTML = "";
+        option002.innerHTML = "";
+        option003.innerHTML = "";
+        option004.innerHTML = "";
+        next001.innerHTML =
+          "<div id=text001>" +
+          "<button class=buttons001 onclick=repeat001()>Repeat</button>" +
+          "</div>";
+        answer001.innerHTML = "";
+      }
+
+      function repeat001() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
