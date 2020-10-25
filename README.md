@@ -14,7 +14,7 @@ Complete quiz website using Javascript, HTML, CSS
 
 ![correct_answer](/images/Screenshot%20(212).png?raw=true "Correct Answer Display")
 
-![quiz end](/images/Screenshot%20(213).png?raw=true "Quiz End Page")
+![quiz end](/images/Screenshot%20(214).png?raw=true "Quiz End Page")
 
 ## Credit
 [Priyanshu](https://t.me/priyanshugandhi)
